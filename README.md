@@ -1,5 +1,5 @@
-# applied-math-papers
-Latest applied math papers with a focus on ML/AI and some supplemental resources
+# CS & applied-math-papers
+Latest CS & math papers with a focus on ML/AI and some supplemental resources.
 
 
 ## Neural Tangent Kernels (NTKs)
