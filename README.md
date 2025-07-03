@@ -1,6 +1,11 @@
 # CS & applied-math-papers
-Latest CS & math papers with a focus on ML/AI and some supplemental resources.
+Latest CS & math papers with a focus on ML/AI and some supplemental resources. Curated with a focus on 
 
+(1) Building foundational knowledge for the latest research topics
+(2) Understanding frontier research papers
+(3) Identifying limitations and future research directions
+
+Created by Nicole Hao.
 
 ## Neural Tangent Kernels (NTKs)
 
@@ -8,7 +13,6 @@ Start with the following:
 
 - [Lilian Weng's Blog on Mathe Behind NTKs](https://lilianweng.github.io/posts/2022-09-08-ntk/)
 - [Understanding the Neural Tangent Kernel](https://www.eigentales.com/NTK/)
-- 
 - [Neural Tangent Kernel, Applied Probability Notes](https://appliedprobability.blog/2021/03/10/neural-tangent-kernel/)
 - [Prior's for Infinite Networks](https://link.springer.com/chapter/10.1007/978-1-4612-0745-0_2)
 
