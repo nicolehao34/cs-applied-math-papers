@@ -73,10 +73,57 @@ Latest papers:
 - [Model Preserving Compression for Neural Networks](https://arxiv.org/abs/2108.00065), NeurIPS
 
 ## Graph Neural Networks (GNNs)
-WIP
 
+GNNs are a class of neural networks designed to process data represented as graphs. Unlike traditional neural networks that work on Euclidean data like images or sequences, GNNs can directly operate on irregular data structures by modeling relationships between nodes and edges. They leverage a **message-passing** framework where nodes update their feature representations by aggregating information from their neighbors. This process allows them to capture complex relational information and learn a continuous representation, or **embedding**, of the graph's structure.
+
+### Foundational Knowledge
+- [Graph neural network - Wikipedia](https://en.wikipedia.org/wiki/Graph_neural_network): Provides a great overview of the basic building blocks of GNNs, including permutation equivariant layers, local and global pooling, and a discussion on the expressive power of GNNs.
+- [Graph Neural Networks in TensorFlow](https://research.google/blog/graph-neural-networks-in-tensorflow/): A resource from Google Research that explains how GNNs can be trained on large datasets using a stream of subgraphs. It also touches on both supervised and unsupervised training methods.
+- [Graph Neural Networks: A New Frontier](https://www.numberanalytics.com/blog/graph-neural-networks-new-frontier-cognitive-science-computing): This blog post explains the core components of a GNN, such as node representation, message passing, and aggregation, and provides a useful comparison with traditional neural networks.
+
+### Frontier Research
+- [Graph Neural Networks: Foundation, Frontiers and Applications](https://scholars.duke.edu/individual/pub1550511): This is a tutorial that covers a broad range of topics in GNNs, including fundamental concepts, new research frontiers, and emerging applications in fields like recommender systems and computer vision.
+- [Recent Research Progress of Graph Neural Networks in Computer Vision](https://www.mdpi.com/2079-9292/14/9/1742): A comprehensive review of GNN applications in computer vision, focusing on image processing, video analysis, and multimodal data fusion. It highlights how GNNs capture inter-region dependencies and spatiotemporal dynamics.
+
+---
 ## Physics-informed Neural Networks (PINNs)
-WIP
+
+Physics-informed neural networks (PINNs) are a type of neural network that incorporates the laws of physics into their training process. They do this by embedding governing equations, like partial differential equations (PDEs), into the neural network's loss function. This allows PINNs to find solutions to physical problems while requiring less training data than traditional data-driven models. They are particularly useful for solving forward and inverse problems in computational science. 
+
+### Foundational Knowledge, start with these
+- [Physics-informed neural networks - Wikipedia](https://en.wikipedia.org/wiki/Physics-informed_neural_networks): A great starting point that defines PINNs, explains their function approximation capabilities, and covers different types of problems they can solve, such as data-driven solution and discovery of PDEs.
+- [Physics-Informed Neural Networks for Inverse PDE Problems](https://towardsdatascience.com/physics-informed-neural-networks-for-inverse-pde-problems/): This article provides an intuitive explanation of PINNs as a "cheat sheet" for a regular neural network, outlining how they use automatic differentiation and a physics-based loss function to achieve better results with less data.
+- [Adaptive Physics-informed Neural Networks](https://arxiv.org/html/2503.18181v1): A review paper that discusses how advanced ML techniques, like transfer learning and meta-learning, can be integrated into PINNs to improve model adaptivity and address convergence challenges.
+
+### Frontier Research
+- [Physics-Informed Neural Networks: A Review of Methodological Evolution, Theoretical Foundations, and Interdisciplinary Frontiers Toward Next-Generation Scientific Computing](https://www.mdpi.com/2076-3417/15/14/8092): A comprehensive review paper that establishes a framework for understanding PINNs, covering methodological innovations, theoretical breakthroughs, and cross-disciplinary applications. It also proposes a roadmap for "PINN 2.0" including neuro-symbolic integration and quantum-accelerated optimization.
+- [Physics-Informed Neural Networks with Hard Constraints for Inverse Design](https://epubs.siam.org/doi/10.1137/21M1397908): This paper introduces a method for solving topology optimization problems using PINNs with hard constraints, which is a significant advancement for engineering design.
+
+Notes:
+- Training PINNs can be computationally expensive, especially for complex or multi-physics problems.
+- Optimizing PINNs can be difficult, and their convergence properties are not as well understood as traditional methods.
+- PINNs can struggle to solve high-frequency or multiscale problems and to incorporate noisy, sparse real-world data effectively.
+- A key area of future research is improving PINN performance by integrating them with other methods, such as domain decomposition techniques (e.g., XPINNs), and exploring novel optimization strategies. The "PINN 2.0" vision focuses on neuro-symbolic integration, federated physics learning, and quantum-accelerated optimization.
+
+---
+## AI4Health
+
+AI4Health (AI for Health) is an interdisciplinary field that applies machine learning and artificial intelligence to various aspects of healthcare. This includes tasks like medical image analysis, personalized treatment planning, drug discovery, and disease prediction. The field aims to improve the accuracy of diagnoses, enhance patient outcomes, and streamline clinical workflows.
+
+### Foundational Knowledge
+- [Artificial Intelligence In Health And Health Care: Priorities For Action](https://www.healthaffairs.org/doi/10.1377/hlthaff.2024.01003): This paper provides a historical context for AI in healthcare and identifies key policy-related domains. It discusses the evolution from early symbolic representations to modern deep neural networks for tasks like digital imaging and diagnostic reasoning.
+- [(PDF) “Impact of Artificial Intelligence on Healthcare: A Review of Current Applications and Future Possibilities”](https://www.researchgate.net/publication/372960293_Impact_of_Artificial_Intelligence_on_Healthcare_A_Review_of_Current_Applications_and_Future_Possibilities): A review that clarifies the role of machine learning and natural language processing in healthcare. It covers applications in image analysis, diagnosis, and treatment planning, and discusses future possibilities like personalized medicine.
+
+### Frontier Research
+- [Evolution of artificial intelligence in healthcare: a 30-year bibliometric study](https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2024.1505692/full): A longitudinal study of AI publications in healthcare over three decades. It highlights the sustained growth in the field and the rise of new topics like COVID-19 analysis and new drug discovery.
+- [Frontiers on Healthcare Research](https://frontiersonhealthcare.org/): This is a journal that focuses on bridging the gap between healthcare research and clinical applications. It's a good source for the latest peer-reviewed findings and strategies for improving patient care.
+
+### Limitations, Directions
+- Data dependency: AI models are often trained on specific datasets from a single hospital or clinic, which can lead to poor performance when applied to data from different institutions. A key challenge is developing models that are more robust and can generalize to diverse populations.
+- Bias and Ethical Concerns: AI models can be biased due to the data they're trained on, which can exacerbate healthcare disparities. The "black box" nature of many deep learning models makes it difficult to understand their decision-making process, leading to a lack of trust from both patients and clinicians.
+- Clinical Integration: Many AI technologies show promise in research but have not been evaluated in clinical settings. Successful implementation requires seamless integration into existing workflows and proper training for healthcare professionals.
+- Some thoughts on human-in-the-loop AI system.... Currently, AI in healthcare should assist, not replace, doctors. Future research focuses on creating explainable AI (XAI) models that are transparent and trustworthy, and on developing systems where the final decision remains with a human clinician.
+
 
 
 
