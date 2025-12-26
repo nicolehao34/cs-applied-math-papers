@@ -25,6 +25,14 @@ Created by Nicole Hao, 2025
 - **[t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html)** (63,000+ citations, 2008): Data visualization technique; must-read for dimensionality reduction
 - **[Dropout](https://jmlr.org/papers/v15/srivastava14a.html)** (60,000+ citations, 2014): The simplest effective way to prevent neural network overfitting
 
+## Liquid Neural Networks (LNNs)
+
+Liquid Neural Networks (LNNs) are a type of artificial intelligence model that utilize a dynamic architecture inspired by biological neurons. They are designed to continuously learn and adapt in real-time, even after deployment, similar to how the human brain learns from experience.
+
+Latest papers:
+- [Comparative Analysis Between Liquid Neural Networks (LNNs) and Recurrent Neural Networks (RNNs)](https://www.researchgate.net/publication/392909174_Comparative_Analysis_Between_Liquid_Neural_Networks_LNNs_and_Recurrent_Neural_Networks_RNNs)
+- [Liquid Neural Networks: Next-Generation AI for Telecom from First Principles](https://arxiv.org/abs/2504.02352)
+
 ## Neural Tangent Kernels (NTKs)
 
 Start with the following:
