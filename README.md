@@ -16,6 +16,7 @@ Latest CS & math papers with a focus on ML/AI and some supplemental resources. C
 
 - [AI Foundations](#ai-foundations-must-reads)
 - [Graph Neural Networks (GNNs)](#graph-neural-networks-gnns)
+- [State Space Models (SSMs) & Mamba](#state-space-models-ssms--mamba)
 - [AI4Health](#ai4health)
 - [Agentic AI](#agentic-ai)
 - [AI for Science (AI4S)](#ai-for-science-ai4s)
@@ -70,6 +71,33 @@ Latest CS & math papers with a focus on ML/AI and some supplemental resources. C
 
 - **[Graph Neural Networks: Foundation, Frontiers and Applications](https://scholars.duke.edu/individual/pub1550511)** — Broad tutorial covering fundamental concepts, research frontiers, and applications in recommender systems and computer vision.
 - **[Recent Research Progress of GNNs in Computer Vision](https://www.mdpi.com/2079-9292/14/9/1742)** (Electronics, 2025) — Review of GNN applications in image processing, video analysis, and multimodal fusion.
+
+---
+
+## State Space Models (SSMs) & Mamba
+
+> SSMs are a class of sequence models rooted in **control theory**, representing dynamics as linear recurrences: `h'(t) = Ah(t) + Bx(t)`, `y(t) = Ch(t)`. Unlike Transformers with O(n²) attention, SSMs process sequences in **O(n) time and O(1) recurrent state** during inference. **Mamba** (2023) introduced *input-selective* state spaces — the transition matrices A, B, C become functions of the input token, enabling content-aware filtering that prior fixed-transition SSMs (like S4) lacked.
+
+### Foundational Resources
+
+- **[S4: Efficiently Modeling Long Sequences with Structured State Spaces](https://arxiv.org/abs/2111.00396)** (ICLR 2022, Outstanding Paper) — Gu et al.; introduced the first practically efficient SSM using diagonal-plus-low-rank structure. The direct predecessor to Mamba.
+- **[Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752)** (arXiv 2023) — Gu & Dao; the core Mamba paper. Introduces the S6 (selective scan) layer and a hardware-aware parallel scan algorithm. Start here for the architecture.
+- **[The Annotated S4](https://srush.github.io/annotated-s4/)** — Sasha Rush; annotated implementation of S4, best hands-on introduction to SSM mechanics.
+
+### Key Papers
+
+- **[Understanding Input Selectivity in Mamba](https://machinelearning.apple.com/research/understanding-input)** (ICML 2025), Huang et al. — Mechanistic analysis of Mamba's S6 layer: shows it can represent Haar wavelet projections to approximate discontinuous functions, dynamically counteract memory decay, and analytically solve associative recall tasks.
+
+- **[MambaVision: A Hybrid Mamba-Transformer Vision Backbone](https://arxiv.org/abs/2407.08083)** (CVPR 2025), Hatamizadeh & Kautz — Integrates self-attention blocks into the final stages of a Mamba backbone; captures long-range spatial dependencies that pure SSMs miss, achieving SOTA on ImageNet-1K and strong results on detection and segmentation.
+
+- **[Attention to Mamba: A Recipe for Cross-Architecture Distillation](https://arxiv.org/abs/2604.14191)** (arXiv 2026), Moudgil et al. — Two-stage knowledge distillation from Transformer teachers into Mamba students using principled initialization and linearized attention; preserves teacher accuracy while retaining SSM inference efficiency.
+
+### Limitations & Future Directions
+
+- Input-selective scanning is powerful but harder to parallelize than attention on modern GPU hardware; hardware-aware implementations are still an active area.
+- Mamba struggles with tasks requiring fine-grained, position-sensitive retrieval compared to full attention — motivating hybrid architectures like MambaVision.
+- Theoretical understanding of *when* selectivity helps (vs. fixed transitions) remains incomplete; the ICML 2025 work above is an early step.
+- Distilling Transformer knowledge into SSMs (cross-architecture distillation) is emerging as a practical path to SSM adoption without training from scratch.
 
 ---
 
