@@ -16,6 +16,7 @@ Curated ML/AI research papers with supplemental learning resources, organized ar
   - [Physics — PINNs](#physics--physics-informed-neural-networks-pinns)
 - [Embodied AI](#embodied-ai)
 - [Artificial General Intelligence (AGI)](#artificial-general-intelligence-agi)
+- [Efficient AI Model Architecture](#efficient-AI)
 - [Uncategorized Topics](#uncategorized-topics)
   - [Liquid Neural Networks (LNNs)](#liquid-neural-networks-lnns)
   - [Neural Tangent Kernels (NTKs)](#neural-tangent-kernels-ntks)
@@ -159,6 +160,90 @@ Integrating AI into physical systems — robots, autonomous vehicles, smart mach
 > *Section in progress — more papers being added.*
 
 - [How Far Are We From AGI: Are LLMs All We Need?](https://arxiv.org/abs/2405.10313) — arXiv 2024
+
+
+
+---
+
+# Efficient AI Model Architecture
+
+
+## Understanding the Landscape
+
+The field broadly splits into two problems with different constraints:
+
+**Training efficiency**: reducing the compute and energy cost of producing a model from scratch. Key levers: optimizer design, architecture search, sparsity during training, and scaling laws (knowing when to stop).
+
+**Inference efficiency**: reducing cost per query at deployment. Often more commercially urgent since a model may run billions of inferences. Key levers: quantization, pruning, distillation, speculative decoding, and hardware-aware architecture design.
+
+Many techniques help both, but the dominant bottleneck differs. Training is dominated by matrix multiplications on dense tensors; inference adds memory bandwidth as a bottleneck, loading weights from DRAM is often the limiter, not raw compute.
+
+---
+
+## Main Research Threads
+
+### Architecture Design
+
+The standard Transformer is not efficient by design, it was optimized for quality. 
+
+Much active work targets the attention mechanism, which scales quadratically with sequence length.
+
+**Sparse / linear attention**
+- [Longformer](https://arxiv.org/abs/2004.05150): sliding window + global attention for long sequences
+- [Performer](https://arxiv.org/abs/2009.14794): approximates attention with random feature maps
+- [FlashAttention](https://arxiv.org/abs/2205.14135): hardware-aware exact attention; 2–4× faster with no quality loss; practically very important
+
+**State space models (SSMs)**
+- [Mamba](https://arxiv.org/abs/2312.00752): current frontier; linear-time sequence modeling as an alternative to attention entirely
+
+**Mixture of experts (MoE)**
+- Only activate a subset of parameters per token
+- [Switch Transformer](https://arxiv.org/abs/2101.03961): foundational MoE paper; most frontier models now use this design
+
+**Hybrid architectures**
+- [Jamba](https://arxiv.org/abs/2403.19887): combines attention with SSMs; representative of current hybrid direction
+
+### Training Efficiency
+
+**Scaling laws**
+- [Chinchilla](https://arxiv.org/abs/2203.15556) — showed most models are undertrained relative to their size; understanding optimal compute allocation is still an open problem
+
+**Efficient optimizers**
+- [Sophia](https://arxiv.org/abs/2305.14342): second-order optimizer that converges faster than Adam
+- [SOAP](https://arxiv.org/abs/2409.11321): recent entry in efficient second-order methods
+
+**Systems-level**: gradient checkpointing, mixed precision training, and distributed training strategies directly affect energy per training run; more engineering-oriented but high practical impact
+
+### Model Compression (Post-training)
+
+**Quantization**: reducing weight precision (fp32 → fp16 → int8 → int4)
+- [GPTQ](https://arxiv.org/abs/2210.17323): post-training quantization for large language models
+- [AWQ](https://arxiv.org/abs/2306.00978): activation-aware weight quantization
+
+**Pruning** — removing weights or attention heads; structured pruning is more hardware-friendly than unstructured
+
+**Knowledge distillation**: training a small student model to mimic a large teacher
+- [DistilBERT](https://arxiv.org/abs/1910.01108): the canonical example
+
+
+### Hardware-Aware Design
+
+An underexplored angle for theory-oriented researchers. Most architectures are designed without explicit knowledge of memory hierarchies. Papers like FlashAttention demonstrate how hardware-aware kernel design can give 2–4× speedups with no quality loss.
+
+- [FlashAttention-2](https://arxiv.org/abs/2307.08691) improved tiling and parallelism
+- [Efficient GPU Kernels for N:M Sparse Weights](https://arxiv.org/abs/2104.02452) structured sparsity on modern GPUs
+
+
+### Other Readings
+
+Read these six in order before deciding on an angle.
+
+1. **[Energy and Policy Considerations for Deep Learning in NLP](https://arxiv.org/abs/1906.02629)** Strubell et al., 2019 — Establishes the problem; read this first
+2. **[Training Compute-Optimal Large Language Models (Chinchilla)](https://arxiv.org/abs/2203.15556)** Foundational for training efficiency thinking
+3. **[FlashAttention](https://arxiv.org/abs/2205.14135)** Best example of hardware-aware architecture work
+4. **[Mamba](https://arxiv.org/abs/2312.00752)** Current frontier for efficient sequence modeling
+5. **[A Survey of Efficient Transformers](https://arxiv.org/abs/2009.06732)** Good map of the attention efficiency space
+6. **[GPTQ](https://arxiv.org/abs/2210.17323)** Representative inference quantization paper
 
 ---
 
