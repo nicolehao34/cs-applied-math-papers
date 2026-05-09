@@ -21,13 +21,15 @@ Latest CS & math papers with a focus on ML/AI and some supplemental resources. C
 - [Agentic AI](#agentic-ai)
 - [AI for Science (AI4S)](#ai-for-science-ai4s)
   - [Physics — PINNs](#physics--physics-informed-neural-networks-pinns)
+- [Deep Learning Theory](#deep-learning-theory)
 - [Embodied AI](#embodied-ai)
 - [Artificial General Intelligence (AGI)](#artificial-general-intelligence-agi)
 - [Liquid Neural Networks (LNNs)](#liquid-neural-networks-lnns)
 - [Neural Tangent Kernels (NTKs)](#neural-tangent-kernels-ntks)
 - [O(3)-Equivariant Deep Networks](#o3-equivariant-deep-networks)
 - [Real-Time Adaptation Laws for Neural Networks](#real-time-adaptation-laws-for-neural-networks)
-- [Model Compression via Numerical Linear Algebra](#model-compression-via-numerical-linear-algebra)
+- [Efficient Model Architecture](#efficient-model-arch)
+  - [Model Compression via Numerical Linear Algebra](#model-compression-via-numerical-linear-algebra)
 
 ---
 
@@ -132,6 +134,7 @@ Latest CS & math papers with a focus on ML/AI and some supplemental resources. C
 
 - **[Adaptation of Agentic AI](https://arxiv.org/abs/2512.16301)** (arXiv, 2025)
 - **[Agentic AI: The Age of Reasoning — A Review](https://www.sciencedirect.com/science/article/pii/S2949855425000516)** (2025)
+- **[Agents of Chaos](https://arxiv.org/abs/2602.20021)**(2026)
 
 *WIP — more papers coming.*
 
@@ -172,6 +175,10 @@ Latest CS & math papers with a focus on ML/AI and some supplemental resources. C
 
 ---
 
+## Deep Learning Theory
+
+- **[There Will Be a Scientific Theory of Deep Learning](https://arxiv.org/abs/2604.21691)** (2026)
+---
 ## Embodied AI
 
 > Integrating AI into physical systems — robots, autonomous vehicles, industrial machines — to perceive, reason, and act in the real world.
@@ -265,6 +272,8 @@ Latest CS & math papers with a focus on ML/AI and some supplemental resources. C
 - **[Lyapunov-Based Real-Time and Iterative Adjustment of Deep Neural Networks](https://ieeexplore.ieee.org/document/9337905)** (IEEE Control Systems Letters, 2021)
 
 ---
+
+## Efficient Model Architecture
 
 ## Model Compression via Numerical Linear Algebra
 
