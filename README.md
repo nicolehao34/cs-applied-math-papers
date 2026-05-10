@@ -168,6 +168,29 @@ Integrating AI into physical systems — robots, autonomous vehicles, smart mach
 # Efficient AI Model Architecture
 
 
+Read these six in order before deciding on an angle.
+
+1. **[Energy and Policy Considerations for Deep Learning in NLP](https://arxiv.org/abs/1906.02629)** Strubell et al., 2019 — Establishes the problem; read this first
+2. **[Training Compute-Optimal Large Language Models (Chinchilla)](https://arxiv.org/abs/2203.15556)** Foundational for training efficiency thinking
+3. **[FlashAttention](https://arxiv.org/abs/2205.14135)** Best example of hardware-aware architecture work
+4. **[Mamba](https://arxiv.org/abs/2312.00752)** Current frontier for efficient sequence modeling
+5. **[A Survey of Efficient Transformers](https://arxiv.org/abs/2009.06732)** Good map of the attention efficiency space
+6. **[GPTQ](https://arxiv.org/abs/2210.17323)** Representative inference quantization paper
+
+### Vision-Language Model Efficiency
+
+**Token merging and pruning**
+- [ToMe: Token Merging for Fast Stable Diffusion](https://arxiv.org/abs/2303.17604): foundational work on token merging; reduces computational cost by merging redundant tokens
+- [FastV: An Image is Worth 1/2 Tokens After Layer 2](https://arxiv.org/abs/2403.06764): dominant LVLM pruning baseline; prunes vision tokens aggressively after early layers
+- [PyramidDrop: Accelerating Your Large Vision-Language Models via Pyramid Visual Redundancy Reduction](https://arxiv.org/abs/2410.17247): improves on FastV with pyramid-based dropping strategy
+
+**Critical perspectives**
+- [Inference Optimization of Foundation Models on AI Accelerators: Are We Solving the Right Problem?](https://arxiv.org/abs/2501.04556): challenges common benchmarking practices and assumptions in efficiency research
+
+**Comprehensive surveys**
+- [Efficient Large Language Models: A Survey](https://arxiv.org/abs/2312.03863): comprehensive map of the full efficiency landscape including architecture, training, and inference optimization
+
+
 ## Understanding the Landscape
 
 The field broadly splits into two problems with different constraints:
