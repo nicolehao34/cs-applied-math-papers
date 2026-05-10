@@ -235,15 +235,23 @@ Much active work targets the attention mechanism, which scales quadratically wit
 - [Sophia](https://arxiv.org/abs/2305.14342): second-order optimizer that converges faster than Adam
 - [SOAP](https://arxiv.org/abs/2409.11321): recent entry in efficient second-order methods
 
+**Training acceleration**
+- [Fast-Slow Efficient Training for MLLMs via Visual Token Pruning](https://arxiv.org/abs/2602.03815): addresses training inefficiency in Multimodal Large Language Models through adaptive visual token pruning
+
 **Systems-level**: gradient checkpointing, mixed precision training, and distributed training strategies directly affect energy per training run; more engineering-oriented but high practical impact
 
 ### Model Compression (Post-training)
 
 **Quantization**: reducing weight precision (fp32 → fp16 → int8 → int4)
+- [LLM.int8()](https://arxiv.org/abs/2208.07339): 8-bit matrix multiplication for transformers at scale
 - [GPTQ](https://arxiv.org/abs/2210.17323): post-training quantization for large language models
 - [AWQ](https://arxiv.org/abs/2306.00978): activation-aware weight quantization
+- [QMoE](https://arxiv.org/abs/2310.16795): practical sub-1-bit compression of trillion-parameter models
+- [Mixed-Precision Quantization for Language Models](https://arxiv.org/abs/2510.16805): comprehensive survey of quantization techniques and prospects
 
 **Pruning** — removing weights or attention heads; structured pruning is more hardware-friendly than unstructured
+- [PyramidDrop](https://arxiv.org/abs/2410.17247): accelerating Large Vision-Language Models via pyramid visual redundancy reduction
+- [SeGPruner](https://arxiv.org/abs/2603.29437): semantic-geometric visual token pruner for 3D question answering
 
 **Knowledge distillation**: training a small student model to mimic a large teacher
 - [DistilBERT](https://arxiv.org/abs/1910.01108): the canonical example
@@ -258,8 +266,7 @@ An underexplored angle for theory-oriented researchers. Most architectures are d
 
 
 ### Other Readings
-
-Read these six in order before deciding on an angle.
+Read in order for a better big picture understanding of the field.
 
 1. **[Energy and Policy Considerations for Deep Learning in NLP](https://arxiv.org/abs/1906.02629)** Strubell et al., 2019 — Establishes the problem; read this first
 2. **[Training Compute-Optimal Large Language Models (Chinchilla)](https://arxiv.org/abs/2203.15556)** Foundational for training efficiency thinking
